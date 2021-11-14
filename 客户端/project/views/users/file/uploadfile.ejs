@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="/lib/layui/css/layui.css" />
+	</head>
+	<body>
+		<form action="/users/file/uploadfile" method="post" enctype="multipart/form-data">
+			<div class="layui-form-item">
+				<label class="layui-form-label">文件名</label>
+				<div class="layui-input-block">
+				  <input type="text" name="filename" required  lay-verify="required" placeholder="请输入文件名" autocomplete="off" class="layui-input">
+				</div>
+			  </div>
+			<input type="file" name="file" id="file" value="" multiple="multiple" /><br/>
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+				  <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit">立即提交</button>
+				  <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				</div>
+			  </div>
+		</form>		
+		<script src="/js/jquery.min.js"></script>
+		<script src="/lib/layui/layui.js" charset="utf-8"></script>
+		<script type="text/javascript">
+		    $("#button").click(function () {
+		        var file = document.getElementById("input").files[0];
+				var reader = new FileReader();
+				reader.readAsArrayBuffer(file);
+				reader.onloadend = (err,data) =>{
+					console.log(reader);
+					console.log(reader.result);
+                    $.ajax({
+                        method:"post",
+                        url:"/users/upload/uploadfile",
+                        data:{databuff:reader.result},
+                        success:alert('succees!')
+                    })
+				}
+				
+		    });
+		</script>
+	</body>
+	
+</html>

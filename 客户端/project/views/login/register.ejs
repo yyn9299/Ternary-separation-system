@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理员注册-医院后台管理系统</title>
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/lib/layui/css/layui.css">
+	<link rel="stylesheet" href="/static/css/weadmin.css">
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+
+</head>
+<body class="login-bg">
+    
+    <div class="login">
+        <div class="message">基于区块链的三元分离联邦学习系统注册页</div>
+        <div id="darkbannerwrap"></div>
+        
+        <form action="/rl/register" method="post" class="layui-form" >
+            <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
+            <hr class="hr15">
+            <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
+            <hr class="hr15">
+            <input name="repassword" lay-verify="required" placeholder="再次输入密码"  type="password" class="layui-input">
+            <hr class="hr15">
+            角色：
+            <input type="radio" name="roleid" value="2" title="模型" checked="">
+            <input type="radio" name="roleid" value="3" title="算力">
+            <input type="radio" name="roleid" value="4" title="数据"> 
+            <input class="loginin" value="注册"  style="width:100%;" type="submit">
+            <hr class="hr20" >
+            <div>
+            	<a href="/rl/login">已有账号？立即登录</a>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        layui.use(['form'], function(){
+            var form = layui.form;
+        });
+    </script>  
+    <!-- 底部结束 -->
+</body>
+</html>
